@@ -3,97 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krish Sandip Shah | Portfolio</title>
+    <title>KRISH SHAH | Cyber Security Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-        body { background-color: #020617; color: #e2e8f0; font-family: 'Space Mono', monospace; scroll-behavior: smooth; }
-        .terminal-glow { box-shadow: 0 0 20px rgba(34, 211, 238, 0.05); border: 1px solid rgba(34, 211, 238, 0.1); }
-        .cursor { display: inline-block; width: 8px; height: 18px; background: #22d3ee; animation: blink 1s infinite; vertical-align: middle; }
-        @keyframes blink { 50% { opacity: 0; } }
-        input { background: transparent; border: none; color: #22d3ee; outline: none; width: 100%; font-family: 'Space Mono', monospace; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
+        :root { --accent: #22d3ee; }
+        body { background-color: #020617; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .mono { font-family: 'Space Mono', monospace; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(34, 211, 238, 0.1); }
+        .bento-card { transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .bento-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 0 20px rgba(34, 211, 238, 0.1); }
     </style>
 </head>
-<body class="selection:bg-cyan-500 selection:text-black">
+<body>
 
-    <section class="pt-32 pb-10 px-6 text-center">
-        <div class="inline-block px-3 py-1 border border-cyan-500/30 text-cyan-400 text-[10px] mb-6 tracking-widest uppercase">Encryption Active: AES-256</div>
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tighter text-white">
-            Krish Shah@TERMINAL: <span class="text-cyan-500">~Krish Sandip Shah</span>
-        </h1>
-        <p class="text-slate-500 max-w-xl mx-auto text-sm italic">"The quieter you become, the more you can hear."</p>
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[1000] w-[90%] max-w-4xl">
+        <div class="glass px-6 py-4 rounded-2xl flex justify-between items-center">
+            <div class="mono text-cyan-400 font-bold">KSS_TERMINAL</div>
+            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <a href="#about" class="hover:text-cyan-400 transition">Profile</a>
+                <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+                <a href="#console" class="hover:text-cyan-400 transition">Console</a>
+            </div>
+            <a href="mailto:shahkrishsandip@gmail.com" class="bg-cyan-500 text-slate-950 px-4 py-2 rounded-lg text-[10px] font-black hover:bg-white transition">CONTACT_SEC</a>
+        </div>
+    </nav>
+
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="text-center">
+            <div class="inline-block px-3 py-1 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold mb-6 mono rounded-full">
+                SYSTEM STATUS: ACTIVE // SCARBOROUGH, ON
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-4">
+                KRISH <span class="text-cyan-500 underline decoration-2 underline-offset-8">SHAH</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg mono mb-10">
+                Computer Engineer & Cyber Security Specialist
+            </p>
+            <div class="flex gap-4 justify-center">
+                <a href="https://github.com/SHAHKRISHS" target="_blank" class="p-3 bg-slate-900 rounded-full hover:bg-cyan-500 hover:text-black transition"><i data-lucide="github"></i></a>
+                <a href="https://linkedin.com/in/thekrishshah" target="_blank" class="p-3 bg-slate-900 rounded-full hover:bg-cyan-500 hover:text-black transition"><i data-lucide="linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-2 glass bento-card p-8 rounded-3xl">
+                <h3 class="text-cyan-400 mono text-xs mb-2 uppercase tracking-widest">Education_Background</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-bold">Cyber Security Certificate</h4>
+                        <p class="text-slate-400">Loyalist College in Toronto (2023-Present)</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Bachelors in Computer Engineering</h4>
+                        <p class="text-slate-400">Gujarat Technological University (2022)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass bento-card p-8 rounded-3xl flex flex-col justify-center">
+                <i data-lucide="shield-check" class="text-cyan-500 w-12 h-12 mb-4"></i>
+                <h4 class="text-2xl font-bold">Security Mindset</h4>
+                <p class="text-slate-400 text-sm mt-2">Focused on resolving complex IT incidents and protecting production environments.</p>
+            </div>
+        </div>
     </section>
 
-    <div class="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
-        <div class="p-4 border border-slate-800 bg-slate-900/30 rounded">
-            <h3 class="text-cyan-400 text-xs font-bold mb-2 underline">RECON</h3>
-            <p class="text-xs text-slate-400">Nmap, Burp Suite, Wireshark</p>
-        </div>
-        <div class="p-4 border border-slate-800 bg-slate-900/30 rounded">
-            <h3 class="text-red-500 text-xs font-bold mb-2 underline">EXPLOIT</h3>
-            <p class="text-xs text-slate-400">Metasploit, SQLMap, Python</p>
-        </div>
-        <div class="p-4 border border-slate-800 bg-slate-900/30 rounded">
-            <h3 class="text-purple-400 text-xs font-bold mb-2 underline">DEFEND</h3>
-            <p class="text-xs text-slate-400">SIEM, Snort, Crowdstrike</p>
-        </div>
-    </div>
-
-    <section class="max-w-4xl mx-auto px-6 pb-20">
-        <div class="terminal-glow bg-black/80 rounded-lg overflow-hidden border border-slate-700">
-            <div class="bg-slate-800 px-4 py-2 flex items-center gap-2">
-                <div class="flex gap-1.5">
-                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+    <section id="experience" class="max-w-6xl mx-auto px-6 py-20 border-t border-slate-900">
+        <h2 class="text-3xl font-black mb-12 flex items-center gap-4">
+            <span class="text-cyan-500">01.</span> OPERATIONAL_HISTORY
+        </h2>
+        <div class="space-y-8">
+            <div class="glass p-8 rounded-3xl border-l-4 border-l-cyan-500">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold">IT Helpdesk</h3>
+                        <p class="text-cyan-400 mono text-sm">Mac Consultants | 2022 - 2023</p>
+                    </div>
                 </div>
-                <span class="text-[10px] text-slate-400 ml-2 uppercase tracking-widest">Mainframe Console v2.0.26</span>
+                <ul class="space-y-2 text-slate-400 text-sm list-disc list-inside">
+                    <li>Oversaw national IT support operations and vendor partnerships.</li>
+                    <li>Resolved Tier 2 and Tier 3 level support issues via escalation channels.</li>
+                    <li>Managed daily environment monitoring and reactive/proactive incident handling.</li>
+                    <li>Collaborated with Mobile Device Managers (MDMs) for IT service delivery.</li>
+                </ul>
             </div>
             
-            <div id="terminal-content" class="p-6 h-80 overflow-y-auto text-sm leading-relaxed text-slate-300">
-                <div class="mb-4 text-cyan-500">Welcome to the secure shell. Type <span class="text-white underline">help</span> to begin.</div>
-            </div>
-
-            <div class="p-4 bg-slate-900/50 border-t border-slate-800 flex gap-2 items-center">
-                <span class="text-cyan-500 font-bold">$</span>
-                <input type="text" id="terminal-input" autofocus autocomplete="off">
+            <div class="glass p-8 rounded-3xl border-l-4 border-l-slate-700">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold">Customer Service Representative</h3>
+                        <p class="text-slate-500 mono text-sm">Circle K | 2023 - Present</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-sm">Ensuring customer satisfaction through professional problem resolution and effective team collaboration.</p>
             </div>
         </div>
     </section>
 
-    <script>
-        const input = document.getElementById('terminal-input');
-        const content = document.getElementById('terminal-content');
+    <section id="console" class="max-w-4xl mx-auto px-6 py-20">
+        <div class="bg-black rounded-xl overflow-hidden border border-slate-800 shadow-2xl">
+            <div class="bg-slate-900 px-4 py-2 flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span class="text-[10px] text-slate-500 ml-2 mono uppercase">root@krish-shah: ~</span>
+            </div>
+            <div id="terminal-output" class="p-6 h-64 overflow-y-auto mono text-sm text-cyan-400 space-y-2">
+                <div>Type 'skills' or 'contact' to interact.</div>
+            </div>
+            <div class="p-4 bg-slate-900/50 flex gap-2 border-t border-slate-800">
+                <span class="mono text-cyan-500 font-bold">$</span>
+                <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-white mono w-full" autofocus autocomplete="off">
+            </div>
+        </div>
+    </section>
 
+    <footer class="py-20 text-center border-t border-slate-900">
+        <p class="mono text-[10px] text-slate-600 uppercase tracking-[0.3em]">
+            Krish Sandip Shah // [647-679-1529] // No Logs Kept
+        </p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const input = document.getElementById('terminal-input');
+        const output = document.getElementById('terminal-output');
         const commands = {
-            'help': 'Available commands: [about] [skills] [contact] [clear] [whoami]',
-            'about': 'Cyber Security Specialist focused on penetration testing and threat intelligence.',
-            'skills': 'Primary: Web App Sec, Network Pentesting, OSCP certified. Tools: Kali, Python, Go.',
-            'contact': 'Reach me at: security-ops@yourdomain.com',
-            'whoami': 'A curious mind seeking vulnerabilities in the digital void.',
-            'clear': 'CLEAR'
+            'skills': 'CRM Tools, IT Support Ops, MDM Management, Problem Solving, Incident Handling.',
+            'contact': 'Email: shahkrishsandip@gmail.com | Phone: (647) 679-1529',
+            'whoami': 'Krish Shah - Cyber Security Student & Computer Engineer.',
+            'help': 'Available: skills, contact, whoami, clear'
         };
 
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 const cmd = input.value.toLowerCase().trim();
-                const response = commands[cmd] || `Command not found: ${cmd}. Type 'help' for options.`;
-                
-                if (cmd === 'clear') {
-                    content.innerHTML = '';
+                if (cmd === 'clear') { output.innerHTML = ''; }
+                else if (commands[cmd]) {
+                    output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>${commands[cmd]}</div>`;
                 } else {
-                    const line = document.createElement('div');
-                    line.innerHTML = `<span class="text-cyan-500 font-bold">$ ${cmd}</span><br><span class="text-slate-400">${response}</span><br><br>`;
-                    content.appendChild(line);
+                    output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>Unknown command. Try 'help'.</div>`;
                 }
-                
                 input.value = '';
-                content.scrollTop = content.scrollHeight;
+                output.scrollTop = output.scrollHeight;
             }
         });
-
-        lucide.createIcons();
     </script>
 </body>
 </html>
