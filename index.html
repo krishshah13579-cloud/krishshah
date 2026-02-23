@@ -24,13 +24,13 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                <span class="mono text-white font-bold uppercase text-sm tracking-tighter">SEC_CORE // KRISH_SHAH</span>
+                <span class="mono text-white font-bold uppercase text-sm tracking-tighter">SEC_MONITOR // KRISH_SHAH</span>
             </div>
             <a href="mailto:Krishshah13579@gmail.com" class="bg-sky-500 text-slate-950 px-4 py-1.5 rounded font-black mono text-[10px] hover:bg-white transition uppercase tracking-widest">Connect_Link</a>
         </div>
     </nav>
 
-    <section class="min-h-[75vh] flex flex-col justify-center px-6 pt-32 max-w-7xl mx-auto">
+    <section class="min-h-[70vh] flex flex-col justify-center px-6 pt-32 max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-12 gap-12">
             <div class="lg:col-span-8">
                 <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase">Security <span class="text-sky-500">Enthusiast.</span></h1>
@@ -54,45 +54,25 @@
 
     <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
         <h2 class="mono text-emerald-500 text-[10px] mb-8 uppercase tracking-[0.5em] flex items-center gap-2">
-            <i data-lucide="activity" class="w-3 h-3"></i> Ongoing_Whitelist_Ops
+            <i data-lucide="shield-check" class="w-3 h-3"></i> Ongoing_Security_Ops
         </h2>
-        <div id="ongoing-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm"></div>
+        <div id="ongoing-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
         <h2 class="mono text-sky-500 text-[10px] mb-8 uppercase tracking-[0.5em] flex items-center gap-2">
-            <i data-lucide="archive" class="w-3 h-3"></i> Whitelist_Archive
+            <i data-lucide="layers" class="w-3 h-3"></i> Security_Research_Archive
         </h2>
         <div id="project-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm"></div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900">
-        <div class="grid lg:grid-cols-2 gap-16">
-            <div class="space-y-6">
-                <h2 class="mono text-sky-400 text-[10px] uppercase tracking-[0.4em]">Competency_Focus</h2>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white uppercase">Python (Sec)</span>
-                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white uppercase">Net_Forensics</span>
-                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white uppercase">OSINT</span>
-                </div>
-            </div>
-            <div class="glass p-8 rounded-3xl border-l-4 border-amber-500">
-                <h3 class="text-white font-bold mono text-sm uppercase mb-4 tracking-widest">Active Roadmap</h3>
-                <p class="text-sm text-amber-500 mono flex items-center gap-2">
-                    <i data-lucide="loader" class="w-4 h-4 animate-spin"></i> CompTIA Security+ (In Progress)
-                </p>
-            </div>
-        </div>
-    </section>
-
     <footer class="py-12 text-center border-t border-slate-900 mono text-[10px] text-slate-700 uppercase tracking-[0.3em]">
-        © 2026 Krish Sandip Shah // System Nominal
+        © 2026 Krish Sandip Shah // Keywords: Cybersecurity, Cybersecuritytools
     </footer>
 
     <script>
         lucide.createIcons();
         
-        // 1. TYPING LOGIC
         const textElement = document.getElementById('summary-text');
         const summaries = [
             "Cyber Security Enthusiast building Python-based security tools for reconnaissance and network defense.",
@@ -108,13 +88,12 @@
             setTimeout(type, speed);
         }
 
-        // 2. STRICT WHITELIST FETCHING LOGIC
-        async function fetchRepos() {
+        async function fetchByKeywords() {
             const ongoingFeed = document.getElementById('ongoing-feed');
             const projectFeed = document.getElementById('project-feed');
             
-            // CONFIGURE YOUR WHITELIST KEYWORDS/NAMES HERE
-            const whitelist = ['cybersecurity', 'cyber-security'];
+            // YOUR SPECIFIED KEYWORDS
+            const whitelist = ['cybersecurity', 'cybersecuritytools'];
 
             try {
                 const response = await fetch('https://api.github.com/users/SHAHKRISHS/repos', {
@@ -123,46 +102,45 @@
                 const repos = await response.json();
                 
                 const now = new Date();
-                const oneMonthAgo = new Date().setMonth(now.getMonth() - 1);
+                const thirtyDaysAgo = new Date().setMonth(now.getMonth() - 1);
 
-                // Filter for ONLY Whitelist projects first
-                const filteredRepos = repos.filter(repo => whitelist.includes(repo.name));
-
-                filteredRepos.forEach(repo => {
+                repos.forEach(repo => {
                     const updatedAt = new Date(repo.updated_at);
-                    const isRecent = updatedAt > oneMonthAgo;
-                    const topicsHTML = repo.topics.map(t => `<span class="topic-tag mono">${t}</span>`).join(' ');
+                    const isRecent = updatedAt > thirtyDaysAgo;
+                    
+                    // Filter based on TOPICS matching whitelist
+                    const matchesKeyword = repo.topics && repo.topics.some(t => whitelist.includes(t.toLowerCase()));
 
-                    const cardHTML = `
-                        <div class="glass p-8 rounded-2xl ${isRecent ? 'active-card shadow-lg shadow-emerald-500/5' : 'archive-card'} flex flex-col h-full border border-slate-800 transition-all hover:-translate-y-1">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-[9px] mono ${isRecent ? 'text-emerald-500' : 'text-sky-500'} font-bold">● ${isRecent ? 'LIVE_OPS' : 'ARCHIVED'}</span>
-                                <span class="text-[9px] mono text-slate-600 uppercase tracking-widest">${repo.language || 'Cyber'}</span>
+                    if (matchesKeyword) {
+                        const topicsHTML = repo.topics.map(t => `<span class="topic-tag mono">${t}</span>`).join(' ');
+                        const cardHTML = `
+                            <div class="glass p-8 rounded-2xl ${isRecent ? 'active-card shadow-lg shadow-emerald-500/5' : 'archive-card'} flex flex-col h-full border border-slate-800 transition-all hover:-translate-y-1">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-[9px] mono ${isRecent ? 'text-emerald-500' : 'text-sky-500'} font-bold">● ${isRecent ? 'LIVE_MODULE' : 'STATIC_MODULE'}</span>
+                                    <span class="text-[9px] mono text-slate-600 uppercase tracking-widest">${repo.language || 'Code'}</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2 uppercase">${repo.name.replace(/-/g, ' ')}</h3>
+                                <p class="text-xs text-slate-500 mb-6 flex-grow leading-relaxed">${repo.description || 'Dedicated security module.'}</p>
+                                <div class="flex flex-wrap gap-2 mb-6">${topicsHTML}</div>
+                                <div class="flex justify-between items-center text-[9px] pt-4 border-t border-slate-900 mono">
+                                    <span class="text-slate-700 uppercase">Synced: ${updatedAt.toLocaleDateString()}</span>
+                                    <a href="${repo.html_url}" target="_blank" class="text-sky-400 hover:text-white"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                                </div>
                             </div>
-                            <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">${repo.name.replace(/-/g, ' ')}</h3>
-                            <p class="text-xs text-slate-500 mb-6 flex-grow leading-relaxed">${repo.description || 'Dedicated security module.'}</p>
-                            <div class="flex flex-wrap gap-2 mb-6">${topicsHTML}</div>
-                            <div class="flex justify-between items-center text-[9px] pt-4 border-t border-slate-900 mono">
-                                <span class="text-slate-700 uppercase">Sync_Date: ${updatedAt.toLocaleDateString()}</span>
-                                <a href="${repo.html_url}" target="_blank" class="text-sky-400 hover:text-white"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-                            </div>
-                        </div>
-                    `;
-                    if (isRecent) ongoingFeed.innerHTML += cardHTML;
-                    else projectFeed.innerHTML += cardHTML;
+                        `;
+                        if (isRecent) ongoingFeed.innerHTML += cardHTML;
+                        else projectFeed.innerHTML += cardHTML;
+                    }
                 });
 
-                // Error Handling for empty sections
-                if (!ongoingFeed.innerHTML) ongoingFeed.innerHTML = '<p class="text-[10px] mono text-slate-700 italic col-span-full uppercase">No active operations detected in whitelist.</p>';
-                if (!projectFeed.innerHTML) projectFeed.innerHTML = '<p class="text-[10px] mono text-slate-700 italic col-span-full uppercase">No archived whitelist research found.</p>';
+                if (!ongoingFeed.innerHTML) ongoingFeed.innerHTML = '<p class="text-[10px] mono text-slate-700 italic col-span-full">No active whitelist topics found.</p>';
+                if (!projectFeed.innerHTML) projectFeed.innerHTML = '<p class="text-[10px] mono text-slate-700 italic col-span-full">No archived whitelist topics found.</p>';
 
                 lucide.createIcons();
-            } catch (err) { 
-                console.error("GITHUB_API_ERROR", err); 
-            }
+            } catch (err) { console.error("GITHUB_API_ERROR", err); }
         }
 
-        window.onload = () => { type(); fetchRepos(); };
+        window.onload = () => { type(); fetchByKeywords(); };
     </script>
 </body>
 </html>
