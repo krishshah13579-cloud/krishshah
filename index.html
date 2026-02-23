@@ -54,14 +54,14 @@
 
     <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
         <h2 class="mono text-emerald-500 text-[10px] mb-8 uppercase tracking-[0.5em] flex items-center gap-2">
-            <i data-lucide="activity" class="w-3 h-3"></i> Ongoing_Operations
+            <i data-lucide="activity" class="w-3 h-3"></i> Ongoing_Whitelist_Ops
         </h2>
-        <div id="ongoing-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        <div id="ongoing-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm"></div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
         <h2 class="mono text-sky-500 text-[10px] mb-8 uppercase tracking-[0.5em] flex items-center gap-2">
-            <i data-lucide="archive" class="w-3 h-3"></i> Research_Archive
+            <i data-lucide="archive" class="w-3 h-3"></i> Whitelist_Archive
         </h2>
         <div id="project-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm"></div>
     </section>
@@ -71,28 +71,28 @@
             <div class="space-y-6">
                 <h2 class="mono text-sky-400 text-[10px] uppercase tracking-[0.4em]">Competency_Focus</h2>
                 <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white">PYTHON (SEC)</span>
-                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white">NET_FORENSICS</span>
-                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white">VULN_ASSESSMENT</span>
+                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white uppercase">Python (Sec)</span>
+                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white uppercase">Net_Forensics</span>
+                    <span class="px-4 py-2 glass border border-slate-800 text-xs mono text-white uppercase">OSINT</span>
                 </div>
             </div>
             <div class="glass p-8 rounded-3xl border-l-4 border-amber-500">
-                <h3 class="text-white font-bold mono text-sm uppercase mb-4 tracking-widest">Ongoing Certification</h3>
+                <h3 class="text-white font-bold mono text-sm uppercase mb-4 tracking-widest">Active Roadmap</h3>
                 <p class="text-sm text-amber-500 mono flex items-center gap-2">
-                    <i data-lucide="loader" class="w-4 h-4 animate-spin"></i> CompTIA Security+ (Exam Prep)
+                    <i data-lucide="loader" class="w-4 h-4 animate-spin"></i> CompTIA Security+ (In Progress)
                 </p>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-slate-900 mono text-[10px] text-slate-700 uppercase">
+    <footer class="py-12 text-center border-t border-slate-900 mono text-[10px] text-slate-700 uppercase tracking-[0.3em]">
         © 2026 Krish Sandip Shah // System Nominal
     </footer>
 
     <script>
         lucide.createIcons();
         
-        // 1. TYPING ANIMATION
+        // 1. TYPING LOGIC
         const textElement = document.getElementById('summary-text');
         const summaries = [
             "Cyber Security Enthusiast building Python-based security tools for reconnaissance and network defense.",
@@ -108,12 +108,12 @@
             setTimeout(type, speed);
         }
 
-        // 2. WHITELIST REPO FETCHING
+        // 2. STRICT WHITELIST FETCHING LOGIC
         async function fetchRepos() {
             const ongoingFeed = document.getElementById('ongoing-feed');
             const projectFeed = document.getElementById('project-feed');
             
-            // EXACT NAMES FROM YOUR GITHUB
+            // CONFIGURE YOUR WHITELIST KEYWORDS/NAMES HERE
             const whitelist = ['Packet-Sniffing-Tool', 'The-Inspection-Tool', 'Keylogger'];
 
             try {
@@ -125,7 +125,7 @@
                 const now = new Date();
                 const oneMonthAgo = new Date().setMonth(now.getMonth() - 1);
 
-                // Filter specifically for whitelist
+                // Filter for ONLY Whitelist projects first
                 const filteredRepos = repos.filter(repo => whitelist.includes(repo.name));
 
                 filteredRepos.forEach(repo => {
@@ -143,7 +143,7 @@
                             <p class="text-xs text-slate-500 mb-6 flex-grow leading-relaxed">${repo.description || 'Dedicated security module.'}</p>
                             <div class="flex flex-wrap gap-2 mb-6">${topicsHTML}</div>
                             <div class="flex justify-between items-center text-[9px] pt-4 border-t border-slate-900 mono">
-                                <span class="text-slate-700 uppercase">Last_Push: ${updatedAt.toLocaleDateString()}</span>
+                                <span class="text-slate-700 uppercase">Sync_Date: ${updatedAt.toLocaleDateString()}</span>
                                 <a href="${repo.html_url}" target="_blank" class="text-sky-400 hover:text-white"><i data-lucide="external-link" class="w-4 h-4"></i></a>
                             </div>
                         </div>
@@ -152,12 +152,14 @@
                     else projectFeed.innerHTML += cardHTML;
                 });
 
-                // Display placeholder if a section is empty
-                if (!ongoingFeed.innerHTML) ongoingFeed.innerHTML = '<p class="text-xs mono text-slate-700 italic col-span-full">No whitelist projects updated in the last 30 days.</p>';
-                if (!projectFeed.innerHTML) projectFeed.innerHTML = '<p class="text-xs mono text-slate-700 italic col-span-full">No archived whitelist projects found.</p>';
+                // Error Handling for empty sections
+                if (!ongoingFeed.innerHTML) ongoingFeed.innerHTML = '<p class="text-[10px] mono text-slate-700 italic col-span-full uppercase">No active operations detected in whitelist.</p>';
+                if (!projectFeed.innerHTML) projectFeed.innerHTML = '<p class="text-[10px] mono text-slate-700 italic col-span-full uppercase">No archived whitelist research found.</p>';
 
                 lucide.createIcons();
-            } catch (err) { console.error("GITHUB_API_ERROR", err); }
+            } catch (err) { 
+                console.error("GITHUB_API_ERROR", err); 
+            }
         }
 
         window.onload = () => { type(); fetchRepos(); };
