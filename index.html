@@ -3,149 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRISH SHAH | Cyber Security Portfolio</title>
+    <title>KRISH SHAH | Security Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
-        :root { --accent: #22d3ee; }
-        body { background-color: #020617; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;700&display=swap');
+        body { background: #020617; color: #94a3b8; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .mono { font-family: 'Space Mono', monospace; }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(34, 211, 238, 0.1); }
-        .bento-card { transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .bento-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 0 20px rgba(34, 211, 238, 0.1); }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.1); }
+        .stat-card { border-left: 2px solid #0ea5e9; background: linear-gradient(90deg, rgba(14, 165, 233, 0.05) 0%, transparent 100%); }
+        .glow { box-shadow: 0 0 20px rgba(14, 165, 233, 0.15); }
     </style>
 </head>
-<body>
+<body class="selection:bg-sky-500 selection:text-white">
 
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[1000] w-[90%] max-w-4xl">
-        <div class="glass px-6 py-4 rounded-2xl flex justify-between items-center">
-            <div class="mono text-cyan-400 font-bold">KSS_TERMINAL</div>
-            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <a href="#about" class="hover:text-cyan-400 transition">Profile</a>
-                <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
-                <a href="#console" class="hover:text-cyan-400 transition">Console</a>
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 glass border-b border-sky-900/20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-sky-500 rounded-full animate-pulse"></div>
+                <span class="mono text-white font-bold tracking-tighter">SEC_OPS // KRISH_SHAH</span>
             </div>
-            <a href="mailto:shahkrishsandip@gmail.com" class="bg-cyan-500 text-slate-950 px-4 py-2 rounded-lg text-[10px] font-black hover:bg-white transition">CONTACT_SEC</a>
+            <div class="hidden md:flex gap-8 text-[10px] mono uppercase tracking-widest">
+                <a href="#projects" class="hover:text-sky-400">Modules</a>
+                <a href="#experience" class="hover:text-sky-400">Experience</a>
+                <a href="#console" class="hover:text-sky-400">Terminal</a>
+            </div>
+            <a href="mailto:Krishshah13579@gmail.com" class="text-sky-400 border border-sky-400/30 px-4 py-1 rounded hover:bg-sky-400 hover:text-white transition mono text-xs">
+                CONNECT
+            </a>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
-        <div class="text-center">
-            <div class="inline-block px-3 py-1 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold mb-6 mono rounded-full">
-                SYSTEM STATUS: ACTIVE // SCARBOROUGH, ON
-            </div>
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-4">
-                KRISH <span class="text-cyan-500 underline decoration-2 underline-offset-8">SHAH</span>
-            </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg mono mb-10">
-                Computer Engineer & Cyber Security Specialist
-            </p>
-            <div class="flex gap-4 justify-center">
-                <a href="https://github.com/SHAHKRISHS" target="_blank" class="p-3 bg-slate-900 rounded-full hover:bg-cyan-500 hover:text-black transition"><i data-lucide="github"></i></a>
-                <a href="https://linkedin.com/in/thekrishshah" target="_blank" class="p-3 bg-slate-900 rounded-full hover:bg-cyan-500 hover:text-black transition"><i data-lucide="linkedin"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <section id="about" class="max-w-6xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="md:col-span-2 glass bento-card p-8 rounded-3xl">
-                <h3 class="text-cyan-400 mono text-xs mb-2 uppercase tracking-widest">Education_Background</h3>
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="text-xl font-bold">Cyber Security Certificate</h4>
-                        <p class="text-slate-400">Loyalist College in Toronto (2023-Present)</p>
+    <section class="min-h-screen flex flex-col justify-center px-6 pt-20 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                    Securing the <span class="text-sky-500">Digital Perimeter.</span>
+                </h1>
+                <p class="text-lg leading-relaxed mb-8 border-l-2 border-sky-500 pl-6 bg-sky-500/5 py-4">
+                    [cite: 69] Dedicated IT specialist with a solid technical foundation and a drive to provide top-notch customer service. [cite: 70] Looking for a challenging role as an IT helpdesk specialist where I can use my technical knowledge and troubleshooting skills to resolve end-user issues.
+                </p>
+                <div class="flex gap-6">
+                    <div class="text-sm">
+                        <span class="block text-sky-500 mono text-xs uppercase mb-1">Location</span>
+                        <span class="text-white">Ahmedabad, Gujarat [cite: 55]</span>
                     </div>
-                    <div>
-                        <h4 class="text-xl font-bold">Bachelors in Computer Engineering</h4>
-                        <p class="text-slate-400">Gujarat Technological University (2022)</p>
+                    <div class="text-sm">
+                        <span class="block text-sky-500 mono text-xs uppercase mb-1">Availability</span>
+                        <span class="text-white">Full-Time</span>
                     </div>
                 </div>
-            </div>
-            <div class="glass bento-card p-8 rounded-3xl flex flex-col justify-center">
-                <i data-lucide="shield-check" class="text-cyan-500 w-12 h-12 mb-4"></i>
-                <h4 class="text-2xl font-bold">Security Mindset</h4>
-                <p class="text-slate-400 text-sm mt-2">Focused on resolving complex IT incidents and protecting production environments.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="max-w-6xl mx-auto px-6 py-20 border-t border-slate-900">
-        <h2 class="text-3xl font-black mb-12 flex items-center gap-4">
-            <span class="text-cyan-500">01.</span> OPERATIONAL_HISTORY
-        </h2>
-        <div class="space-y-8">
-            <div class="glass p-8 rounded-3xl border-l-4 border-l-cyan-500">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold">IT Helpdesk</h3>
-                        <p class="text-cyan-400 mono text-sm">Mac Consultants | 2022 - 2023</p>
-                    </div>
-                </div>
-                <ul class="space-y-2 text-slate-400 text-sm list-disc list-inside">
-                    <li>Oversaw national IT support operations and vendor partnerships.</li>
-                    <li>Resolved Tier 2 and Tier 3 level support issues via escalation channels.</li>
-                    <li>Managed daily environment monitoring and reactive/proactive incident handling.</li>
-                    <li>Collaborated with Mobile Device Managers (MDMs) for IT service delivery.</li>
-                </ul>
             </div>
             
-            <div class="glass p-8 rounded-3xl border-l-4 border-l-slate-700">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold">Customer Service Representative</h3>
-                        <p class="text-slate-500 mono text-sm">Circle K | 2023 - Present</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass p-6 rounded-2xl glow">
+                    <i data-lucide="shield" class="text-sky-400 mb-4"></i>
+                    <h3 class="text-white font-bold mb-2">Cyber Security</h3>
+                    <p class="text-xs">Ontario College Graduate Certificate [cite: 57, 58]</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <i data-lucide="cpu" class="text-sky-400 mb-4"></i>
+                    <h3 class="text-white font-bold mb-2">Engineering</h3>
+                    <p class="text-xs">Bachelors in Computer Engineering [cite: 63, 64]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900">
+        <h2 class="mono text-sky-500 text-sm mb-12 uppercase tracking-[0.4em]">Development_Modules</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-3xl hover:border-sky-500 transition-all group">
+                <div class="flex justify-between mb-6">
+                    <i data-lucide="search" class="text-sky-400 group-hover:scale-110 transition"></i>
+                    <span class="text-[10px] mono text-slate-500">PY_CORE</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Packet Sniffing Tool</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                    [cite: 89] Developed in Python providing options for raw, summary, target, and host exploration of network interfaces.
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">Networking</span>
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">Python</span>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl hover:border-sky-500 transition-all group">
+                <div class="flex justify-between mb-6">
+                    <i data-lucide="binary" class="text-sky-400 group-hover:scale-110 transition"></i>
+                    <span class="text-[10px] mono text-slate-500">VULN_SCAN</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">The Inspection Tool</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                    [cite: 91] Automated reconnaissance tool performing port scanning, WHOIS lookups, and subdomain discovery.
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">Recon</span>
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">Automation</span>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl hover:border-sky-500 transition-all group">
+                <div class="flex justify-between mb-6">
+                    <i data-lucide="keyboard" class="text-sky-400 group-hover:scale-110 transition"></i>
+                    <span class="text-[10px] mono text-slate-500">SYSTEM_LOG</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Python Keylogger</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                    [cite: 86, 87] Security research project focused on keystroke logging and secure data transmission via Python.
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">Python</span>
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">CyberSec</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="max-w-7xl mx-auto px-6 py-24 bg-slate-900/20">
+        <div class="grid lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+                <h2 class="text-4xl font-bold text-white mb-6">Operational History</h2>
+                <p class="text-sm text-slate-500 mb-8">
+                    [cite: 74] Hands-on experience overseeing national IT support operations and  handling production incidents reactively and proactively.
+                </p>
+                <div class="space-y-4">
+                    <div class="stat-card p-4">
+                        <span class="block text-2xl font-bold text-white">L2/L3</span>
+                        <span class="text-xs uppercase mono">Support Level </span>
                     </div>
                 </div>
-                <p class="text-slate-400 text-sm">Ensuring customer satisfaction through professional problem resolution and effective team collaboration.</p>
+            </div>
+            
+            <div class="lg:col-span-8 space-y-12">
+                <div class="relative pl-8 border-l border-sky-900">
+                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-sky-500 rounded-full"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-white">IT Helpdesk Specialist</h3>
+                        <span class="text-sky-500 mono text-xs uppercase">2022 - 2023 [cite: 72]</span>
+                    </div>
+                    <p class="text-sky-400 text-sm mb-4">Mac Consultants | Ahmedabad [cite: 73]</p>
+                    <ul class="text-sm space-y-3 text-slate-400">
+                        <li>[cite: 74] Worked with vendors and contractors to guarantee effective support services.</li>
+                        <li> Resolved complex issues at the second and third level of support via escalation channels.</li>
+                        <li>[cite: 77] Collaborated with MDMs to guarantee smooth delivery of IT services.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="console" class="max-w-4xl mx-auto px-6 py-20">
-        <div class="bg-black rounded-xl overflow-hidden border border-slate-800 shadow-2xl">
-            <div class="bg-slate-900 px-4 py-2 flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
-                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-                <span class="text-[10px] text-slate-500 ml-2 mono uppercase">root@krish-shah: ~</span>
+    <section id="console" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="glass rounded-2xl overflow-hidden shadow-2xl">
+            <div class="bg-slate-900/50 px-6 py-3 flex justify-between items-center border-b border-sky-900/20">
+                <div class="flex gap-2">
+                    <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+                </div>
+                <span class="mono text-[10px] text-slate-500">SEC_SHELL_V1.0</span>
             </div>
-            <div id="terminal-output" class="p-6 h-64 overflow-y-auto mono text-sm text-cyan-400 space-y-2">
-                <div>Type 'skills' or 'contact' to interact.</div>
+            <div id="output" class="p-8 h-80 overflow-y-auto mono text-sm text-sky-400 space-y-2">
+                <div class="text-slate-500">System Ready. Type 'capabilities' or 'contact' to begin.</div>
             </div>
-            <div class="p-4 bg-slate-900/50 flex gap-2 border-t border-slate-800">
-                <span class="mono text-cyan-500 font-bold">$</span>
-                <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-white mono w-full" autofocus autocomplete="off">
+            <div class="p-6 bg-black/40 flex gap-4 items-center border-t border-sky-900/20">
+                <span class="mono text-sky-500 font-bold">$</span>
+                <input type="text" id="terminalInput" class="bg-transparent border-none outline-none text-white mono w-full" autofocus autocomplete="off">
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center border-t border-slate-900">
-        <p class="mono text-[10px] text-slate-600 uppercase tracking-[0.3em]">
-            Krish Sandip Shah // [647-679-1529] // No Logs Kept
-        </p>
+    <footer class="py-12 text-center text-[10px] mono text-slate-700 tracking-[0.5em] border-t border-slate-900">
+        &copy; 2026 KRISH SANDIP SHAH // 01001011 01010011 01010011
     </footer>
 
     <script>
         lucide.createIcons();
-        const input = document.getElementById('terminal-input');
-        const output = document.getElementById('terminal-output');
-        const commands = {
-            'skills': 'CRM Tools, IT Support Ops, MDM Management, Problem Solving, Incident Handling.',
-            'contact': 'Email: shahkrishsandip@gmail.com | Phone: (647) 679-1529',
-            'whoami': 'Krish Shah - Cyber Security Student & Computer Engineer.',
-            'help': 'Available: skills, contact, whoami, clear'
+        const input = document.getElementById('terminalInput');
+        const output = document.getElementById('output');
+        const db = {
+            'capabilities': '[cite: 79] Skills: Hardware/Software Troubleshooting, Helpdesk Ticketing, Operating Systems, Networking, Problem-solving.',
+            'contact': 'Email: Krishshah13579@gmail.com | Phone: 8128756632 [cite: 48, 53]',
+            'education': '[cite: 57, 58] Cyber Security Certificate - Loyalist College | [cite: 63, 64] B.E. Computer Engineering - GTU.',
+            'whoami': 'Krish Sandip Shah: IT Specialist & Computer Engineer. [cite: 67, 69]',
+            'help': 'Commands: capabilities, contact, education, whoami, clear'
         };
 
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 const cmd = input.value.toLowerCase().trim();
                 if (cmd === 'clear') { output.innerHTML = ''; }
-                else if (commands[cmd]) {
-                    output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>${commands[cmd]}</div>`;
+                else if (db[cmd]) {
+                    output.innerHTML += `<div><span class="text-slate-500">$ ${cmd}</span><br>${db[cmd]}</div>`;
                 } else {
-                    output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>Unknown command. Try 'help'.</div>`;
+                    output.innerHTML += `<div><span class="text-slate-500">$ ${cmd}</span><br>Command not found. Type 'help'.</div>`;
                 }
                 input.value = '';
                 output.scrollTop = output.scrollHeight;
