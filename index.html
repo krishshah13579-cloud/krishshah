@@ -7,144 +7,209 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;700&display=swap');
-        body { background: #020617; color: #94a3b8; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
+        
+        :root {
+            --neon-blue: #0ea5e9;
+            --neon-green: #10b981;
+            --terminal-dark: #020617;
+        }
+
+        body { 
+            background: var(--terminal-dark); 
+            color: #94a3b8; 
+            font-family: 'Share Tech Mono', monospace; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
+
+        /* Scanline Overlay Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 100;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
         .mono { font-family: 'Space Mono', monospace; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.1); }
-        .active-card { border-left: 3px solid #10b981; }
-        .archive-card { border-left: 3px solid #0ea5e9; }
-        .topic-tag { background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); padding: 2px 8px; border-radius: 4px; font-size: 9px; color: #38bdf8; }
-        .typing-cursor::after { content: "_"; animation: blink 1s infinite; color: #0ea5e9; }
+        
+        .cyber-border {
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            position: relative;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Corner accents for cards */
+        .cyber-border::before {
+            content: "";
+            position: absolute;
+            top: -2px; left: -2px;
+            width: 10px; height: 10px;
+            border-top: 2px solid var(--neon-blue);
+            border-left: 2px solid var(--neon-blue);
+        }
+
+        .cyber-border::after {
+            content: "";
+            position: absolute;
+            bottom: -2px; right: -2px;
+            width: 10px; height: 10px;
+            border-bottom: 2px solid var(--neon-blue);
+            border-right: 2px solid var(--neon-blue);
+        }
+
+        .topic-tag { 
+            background: rgba(14, 165, 233, 0.1); 
+            border: 1px solid var(--neon-blue); 
+            padding: 2px 8px; 
+            font-size: 10px; 
+            color: var(--neon-blue);
+            clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%);
+        }
+
+        .typing-cursor::after { content: "█"; animation: blink 1s infinite; color: var(--neon-blue); }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .glitch-text:hover {
+            text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
     </style>
 </head>
 <body class="selection:bg-sky-500 selection:text-white">
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-4 glass border-b border-sky-900/20">
+    <nav class="fixed top-0 w-full z-[1000] px-6 py-3 border-b border-sky-500/30 bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                <span class="mono text-white font-bold uppercase text-sm tracking-tighter">SEC_PROFILE // KRISH_SHAH</span>
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-red-600 rounded-full animate-ping"></div>
+                <span class="mono text-white font-bold uppercase text-xs tracking-[0.2em]">KRISH_STATION // V2.0.26</span>
             </div>
-            <a href="#contact" class="bg-sky-500 text-slate-950 px-4 py-1.5 rounded font-black mono text-[10px] hover:bg-white transition uppercase">Establish_Link</a>
+            <a href="#contact" class="cyber-border px-6 py-1 text-sky-400 text-xs uppercase hover:bg-sky-500 hover:text-black transition-all">
+                Execute_Contact
+            </a>
         </div>
     </nav>
 
-    <section class="min-h-[60vh] flex flex-col justify-center px-6 pt-32 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-12">
-            <div class="lg:col-span-8">
-                <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase">Security <span class="text-sky-500">Enthusiast.</span></h1>
-                <div class="min-h-[140px] mb-8">
-                    <p id="summary-text" class="text-xl md:text-2xl leading-relaxed text-slate-200 border-l-4 border-sky-500 pl-8 typing-cursor mono"></p>
-                </div>
+    <main class="max-w-7xl mx-auto px-6 pt-32 pb-20">
+        
+        <header class="mb-20">
+            <h1 class="text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter glitch-text">
+                User: <span class="text-sky-500 underline decoration-sky-900">Krish</span>
+            </h1>
+            <div class="cyber-border p-8 border-l-4 border-l-sky-500">
+                <p id="summary-text" class="text-xl md:text-2xl text-sky-100 typing-cursor mono"></p>
             </div>
-            <div class="lg:col-span-4 space-y-4">
-                <h2 class="mono text-sky-500 text-[10px] uppercase tracking-[0.4em] mb-4">Academic_Foundation</h2>
-                <div class="glass p-6 rounded-2xl border-t-2 border-sky-500">
-                    <h3 class="text-white font-bold text-sm uppercase">Cyber Security</h3>
-                    <p class="text-xs text-slate-400 mt-1">Loyalist College | 2024</p>
-                </div>
-                <div class="glass p-6 rounded-2xl border-t-2 border-slate-700">
-                    <h3 class="text-white font-bold text-sm uppercase">Computer Engineering</h3>
-                    <p class="text-xs text-slate-400 mt-1">GTU | 2022</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </header>
 
-    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
-        <div class="grid lg:grid-cols-2 gap-16">
-            <div>
-                <h2 class="mono text-sky-500 text-[10px] mb-8 uppercase tracking-[0.4em]">Technical_Competencies</h2>
+        <div class="grid lg:grid-cols-3 gap-6 mb-20">
+            <div class="lg:col-span-2 cyber-border p-8">
+                <h2 class="text-sky-500 text-xs mb-8 uppercase tracking-[0.4em]">[ TECHNICAL_ASSETS ]</h2>
                 <div class="space-y-6">
                     <div>
-                        <div class="flex justify-between mb-2 text-xs mono uppercase text-white"><span>Python Security Scripting</span><span>Advanced</span></div>
-                        <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full bg-sky-500" style="width: 85%"></div></div>
+                        <div class="flex justify-between mb-2 text-[10px] uppercase"><span>Python Security</span><span class="text-sky-500">85%</span></div>
+                        <div class="h-1 bg-slate-900 w-full"><div class="h-full bg-sky-500 shadow-[0_0_10px_#0ea5e9]" style="width: 85%"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between mb-2 text-xs mono uppercase text-white"><span>Network Forensics</span><span>Intermediate</span></div>
-                        <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full bg-sky-400" style="width: 75%"></div></div>
+                        <div class="flex justify-between mb-2 text-[10px] uppercase"><span>Network Forensics</span><span class="text-emerald-500">75%</span></div>
+                        <div class="h-1 bg-slate-900 w-full"><div class="h-full bg-emerald-500 shadow-[0_0_10px_#10b981]" style="width: 75%"></div></div>
                     </div>
                 </div>
             </div>
-            <div class="glass p-8 rounded-3xl border-l-4 border-amber-500">
-                <h3 class="text-white font-bold mono text-sm uppercase mb-4 flex items-center gap-2">
-                    <i data-lucide="award" class="text-amber-500 w-5 h-5"></i> Ongoing_Certification
-                </h3>
-                <p class="text-white font-bold text-lg">CompTIA Security+</p>
-                <p class="text-xs text-amber-500 mono uppercase mb-4">Status: In Progress</p>
-                <p class="text-xs text-slate-500 italic">Focusing on threat mitigation and secure network architecture.</p>
+            <div class="cyber-border p-8 bg-amber-500/5 border-amber-500/20 shadow-[inset_0_0_20px_rgba(245,158,11,0.05)]">
+                <div class="flex items-center gap-3 mb-4 text-amber-500">
+                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                    <span class="text-xs uppercase font-bold">Priority_Alert</span>
+                </div>
+                <h3 class="text-white font-bold mb-1 uppercase">CompTIA Security+</h3>
+                <p class="text-[10px] text-amber-600 mb-4 tracking-widest uppercase">STATUS: LOADING_KNOWLEDGE</p>
+                <div class="w-full h-1 bg-slate-900 overflow-hidden">
+                    <div class="h-full bg-amber-500 animate-[progress_2s_ease-in-out_infinite]" style="width: 40%"></div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
-        <h2 class="mono text-emerald-500 text-[10px] mb-8 uppercase tracking-[0.5em]">Active_Research</h2>
-        <div id="ongoing-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm"></div>
-    </section>
+        <section class="mb-20">
+            <h2 class="text-emerald-500 text-xs mb-8 uppercase tracking-[0.4em] flex items-center gap-2">
+                <i data-lucide="terminal" class="w-4 h-4"></i> Active_Modules
+            </h2>
+            <div id="ongoing-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-900">
-        <h2 class="mono text-sky-500 text-[10px] mb-8 uppercase tracking-[0.5em]">Research_Archive</h2>
-        <div id="project-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm"></div>
-    </section>
+        <section class="mb-20">
+            <h2 class="text-sky-500 text-xs mb-8 uppercase tracking-[0.4em] flex items-center gap-2">
+                <i data-lucide="database" class="w-4 h-4"></i> Cached_Research
+            </h2>
+            <div id="project-feed" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
 
-    <section id="contact" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900 bg-slate-950/20">
-        <div class="grid lg:grid-cols-2 gap-16">
+        <section id="contact" class="grid lg:grid-cols-2 gap-12 cyber-border p-12 bg-slate-950/40">
             <div>
-                <h2 class="mono text-sky-500 text-[10px] mb-4 uppercase tracking-[0.5em]">Secure_Communication</h2>
-                <h3 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter">Establish a <span class="text-sky-500">Connection.</span></h3>
-                <div class="space-y-4 mb-8">
-                    <div class="flex items-center gap-4 text-sm mono text-slate-300">
-                        <i data-lucide="mail" class="text-sky-500 w-5 h-5"></i> Krishshah13579@gmail.com
+                <h2 class="text-sky-500 text-xs mb-4 uppercase tracking-[0.4em]">// UPLINK_PROTOCOL</h2>
+                <h3 class="text-4xl font-black text-white mb-6 tracking-tighter uppercase">Send <span class="text-sky-500 italic">Packet.</span></h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 text-xs text-slate-400 group">
+                        <div class="p-2 cyber-border group-hover:text-sky-400"><i data-lucide="mail" class="w-4 h-4"></i></div>
+                        Krishshah13579@gmail.com
                     </div>
-                    <div class="flex items-center gap-4 text-sm mono text-slate-300">
-                        <i data-lucide="map-pin" class="text-sky-500 w-5 h-5"></i> Ahmedabad, Gujarat
+                    <div class="flex items-center gap-4 text-xs text-slate-400 group">
+                        <div class="p-2 cyber-border group-hover:text-sky-400"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+                        Ahmedabad, IN
                     </div>
                 </div>
             </div>
-            <div class="glass p-8 rounded-3xl border border-sky-500/20">
-                <form action="https://formspree.io/f/mlgwolvv" method="POST" class="space-y-6">
-                    <div>
-                        <label class="block mono text-[10px] uppercase text-slate-500 mb-2">Identify_Sender</label>
-                        <input type="text" name="name" required placeholder="Name" class="w-full bg-slate-900/50 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-sky-500 transition">
-                    </div>
-                    <div>
-                        <label class="block mono text-[10px] uppercase text-slate-500 mb-2">Return_Address</label>
-                        <input type="email" name="email" required placeholder="Email" class="w-full bg-slate-900/50 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-sky-500 transition">
-                    </div>
-                    <div>
-                        <label class="block mono text-[10px] uppercase text-slate-500 mb-2">Encrypted_Message</label>
-                        <textarea name="message" required rows="4" placeholder="Message..." class="w-full bg-slate-900/50 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-sky-500 transition"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-sky-500 hover:bg-white text-slate-950 font-black mono py-4 rounded-lg uppercase transition-all flex items-center justify-center gap-2">
-                        Transmit_Data <i data-lucide="send" class="w-4 h-4"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+            <form action="https://formspree.io/f/mlgwolvv" method="POST" class="space-y-4">
+                <input type="text" name="name" required placeholder="SENDER_ID" class="w-full bg-slate-900 border border-slate-800 p-4 text-xs text-white focus:border-sky-500 outline-none">
+                <input type="email" name="email" required placeholder="RETURN_ADDR" class="w-full bg-slate-900 border border-slate-800 p-4 text-xs text-white focus:border-sky-500 outline-none">
+                <textarea name="message" required rows="4" placeholder="ENCRYPTED_MESSAGE" class="w-full bg-slate-900 border border-slate-800 p-4 text-xs text-white focus:border-sky-500 outline-none"></textarea>
+                <button type="submit" class="w-full py-4 bg-sky-600 text-black font-black uppercase text-xs hover:bg-white transition-all shadow-[0_0_15px_rgba(14,165,233,0.4)]">
+                    Transmit_Signal
+                </button>
+            </form>
+        </section>
 
-    <footer class="py-12 text-center border-t border-slate-900 mono text-[10px] text-slate-700 uppercase">
-        © 2026 Krish Sandip Shah
+    </main>
+
+    <footer class="py-10 text-center border-t border-sky-900/30 text-[10px] uppercase tracking-[0.5em] text-slate-600">
+        System_State: Stable // © 2026 Krish Shah
     </footer>
 
     <script>
         lucide.createIcons();
         
-        // Typing Logic
+        // Dynamic Terminal Text
         const textElement = document.getElementById('summary-text');
-        const summaries = ["Cyber Security Enthusiast building Python-based security tools.", "Security Researcher focused on Network Forensics and OSINT."];
+        const summaries = [
+            "Initializing security environment... OK",
+            "Targeting: Python-based offensive tools & Network Defense.",
+            "Analyzing traffic patterns and OSINT datasets.",
+            "Building robust cybersecurity infrastructure."
+        ];
         let sIdx = 0, cIdx = 0, deleting = false;
         function type() {
             const cur = summaries[sIdx];
             textElement.textContent = deleting ? cur.substring(0, cIdx--) : cur.substring(0, cIdx++);
-            let speed = deleting ? 30 : 60;
+            let speed = deleting ? 20 : 50;
             if (!deleting && cIdx === cur.length) { deleting = true; speed = 3000; }
             else if (deleting && cIdx === 0) { deleting = false; sIdx = (sIdx + 1) % summaries.length; speed = 500; }
             setTimeout(type, speed);
         }
 
-        // GitHub Logic
+        // GitHub Repository Fetching (Filtered by Topics)
         async function fetchRepos() {
             const ongoingFeed = document.getElementById('ongoing-feed');
             const projectFeed = document.getElementById('project-feed');
@@ -161,20 +226,27 @@
                 .forEach(repo => {
                     const updatedAt = new Date(repo.updated_at);
                     const isRecent = updatedAt > thirtyDaysAgo;
-                    const topicsHTML = repo.topics.map(t => `<span class="topic-tag mono">${t}</span>`).join(' ');
+                    const topicsHTML = repo.topics.map(t => `<span class="topic-tag">${t}</span>`).join(' ');
                     
-                    const cardHTML = `<div class="glass p-8 rounded-2xl ${isRecent ? 'active-card shadow-lg shadow-emerald-500/5' : 'archive-card'} flex flex-col h-full border border-slate-800 transition-all hover:-translate-y-1">
-                        <div class="flex justify-between items-center mb-4"><span class="text-[9px] mono ${isRecent ? 'text-emerald-500' : 'text-sky-500'} font-bold">● ${isRecent ? 'LIVE_OPS' : 'ARCHIVE'}</span><span class="text-[9px] mono text-slate-600 uppercase">${repo.language || 'Code'}</span></div>
-                        <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">${repo.name.replace(/-/g, ' ')}</h3>
-                        <p class="text-xs text-slate-500 mb-6 flex-grow">${repo.description || 'Security research module.'}</p>
-                        <div class="flex flex-wrap gap-2 mb-6">${topicsHTML}</div>
-                        <div class="flex justify-between items-center text-[9px] pt-4 border-t border-slate-900 mono uppercase"><span>Sync: ${updatedAt.toLocaleDateString()}</span><a href="${repo.html_url}" target="_blank" class="text-sky-400 hover:text-white"><i data-lucide="external-link" class="w-4 h-4"></i></a></div>
-                    </div>`;
+                    const cardHTML = `
+                        <div class="cyber-border p-6 flex flex-col h-full hover:bg-sky-500/5 transition-all">
+                            <div class="flex justify-between items-center mb-4 text-[9px]">
+                                <span class="${isRecent ? 'text-emerald-400' : 'text-slate-500'} font-bold">● ${isRecent ? 'ACTIVE_MOD' : 'CACHED'}</span>
+                                <span class="text-sky-500">${repo.language || 'DATA'}</span>
+                            </div>
+                            <h3 class="text-white font-bold mb-2 uppercase text-sm tracking-widest">${repo.name.replace(/-/g, '_')}</h3>
+                            <p class="text-[11px] text-slate-500 mb-6 flex-grow leading-relaxed">${repo.description || 'Module description unavailable.'}</p>
+                            <div class="flex flex-wrap gap-2 mb-6">${topicsHTML}</div>
+                            <div class="flex justify-between items-center text-[9px] pt-4 border-t border-sky-900/30">
+                                <span class="text-slate-600">UPDATED: ${updatedAt.toLocaleDateString()}</span>
+                                <a href="${repo.html_url}" target="_blank" class="text-sky-400 hover:text-white"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                            </div>
+                        </div>`;
                     if (isRecent) ongoingFeed.innerHTML += cardHTML;
                     else projectFeed.innerHTML += cardHTML;
                 });
                 lucide.createIcons();
-            } catch (err) { console.error("GITHUB_ERROR", err); }
+            } catch (err) { console.error("SIGNAL_LOST", err); }
         }
 
         window.onload = () => { type(); fetchRepos(); };
