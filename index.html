@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRISH SHAH | Cyber Security Professional</title>
+    <title>KRISH SHAH | Security Research Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -11,9 +11,9 @@
         body { background: #020617; color: #94a3b8; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .mono { font-family: 'Space Mono', monospace; }
         .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.1); }
-        .cyber-card { border-left: 3px solid #0ea5e9; transition: all 0.3s ease; }
-        .cyber-card:hover { background: rgba(14, 165, 233, 0.05); transform: translateX(5px); }
-        .glow { box-shadow: 0 0 20px rgba(14, 165, 233, 0.15); }
+        .project-card { border: 1px solid rgba(14, 165, 233, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .project-card:hover { border-color: #0ea5e9; transform: scale(1.02); background: rgba(14, 165, 233, 0.03); }
+        .status-pulse { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 8px; }
     </style>
 </head>
 <body class="selection:bg-sky-500 selection:text-white">
@@ -21,191 +21,174 @@
     <nav class="fixed top-0 w-full z-50 px-6 py-4 glass border-b border-sky-900/20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-2 h-2 bg-sky-500 rounded-full animate-pulse"></div>
-                <span class="mono text-white font-bold tracking-tighter uppercase text-sm">KRISH_SHAH_V2.0</span>
+                <i data-lucide="shield" class="text-sky-500 w-5 h-5"></i>
+                <span class="mono text-white font-bold tracking-tighter uppercase text-sm">KRISH_LABS_v3.0</span>
             </div>
             <div class="hidden md:flex gap-8 text-[10px] mono uppercase tracking-widest">
-                <a href="#about" class="hover:text-sky-400">Identity</a>
-                <a href="#projects" class="hover:text-sky-400">Security_Labs</a>
-                <a href="#skills" class="hover:text-sky-400">Skill_Matrix</a>
-                <a href="#experience" class="hover:text-sky-400">History</a>
+                <a href="#about" class="hover:text-sky-400">Researcher</a>
+                <a href="#active-projects" class="hover:text-sky-400">Active_Labs</a>
+                <a href="#roadmap" class="hover:text-sky-400">Roadmap</a>
             </div>
-            <a href="mailto:Krishshah13579@gmail.com" class="bg-sky-500 text-slate-950 px-4 py-1.5 rounded font-black mono text-[10px] hover:bg-white transition uppercase">
-                Secure_Contact
+            <a href="mailto:Krishshah13579@gmail.com" class="text-sky-400 border border-sky-400/30 px-4 py-1.5 rounded font-black mono text-[10px] hover:bg-sky-500 hover:text-white transition uppercase">
+                Establish_Connection
             </a>
         </div>
     </nav>
 
-    <section id="about" class="min-h-screen flex flex-col justify-center px-6 pt-20 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-12">
-            <div class="lg:col-span-8">
-                <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
-                    KRISH <span class="text-sky-500">SHAH.</span>
-                </h1>
-                <p class="text-xl leading-relaxed text-slate-300 mb-8 max-w-3xl">
-                    <span class="text-sky-400 font-bold uppercase mono text-sm block mb-2">Cyber Security Professional Summary</span>
-                    Security Researcher and Computer Engineer with a technical focus on Network Security and Automated Reconnaissance. 
-                    Accomplished 2024 graduate of the Cyber Security program at Loyalist College, expert in building Python-based tools 
-                    for packet sniffing and OSINT discovery. Proven track record in high-tier L2/L3 incident escalation.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <div class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-md mono text-xs">
-                        <span class="text-sky-500">EMAIL:</span> Krishshah13579@gmail.com
-                    </div>
-                    <div class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-md mono text-xs">
-                        <span class="text-sky-500">PHONE:</span> 8128756632
-                    </div>
-                    <div class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-md mono text-xs">
-                        <span class="text-sky-500">LOC:</span> Ahmedabad, Gujarat
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-4 space-y-4">
-                <div class="glass p-6 rounded-xl border-t-2 border-sky-500 glow">
-                    <h4 class="text-white font-bold">Cyber Security Graduate</h4>
-                    <p class="text-xs text-sky-400 mono">Loyalist College, Toronto | 2024</p>
-                </div>
-                <div class="glass p-6 rounded-xl border-t-2 border-slate-700">
-                    <h4 class="text-white font-bold">B.E. Computer Engineering</h4>
-                    <p class="text-xs text-slate-500 mono">Gujarat Technological University | 2022</p>
-                </div>
+    <section id="about" class="min-h-[70vh] flex flex-col justify-center px-6 pt-32 max-w-7xl mx-auto">
+        <div class="max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+                RESEARCH <span class="text-sky-500">&</span> DEVELOPMENT<span class="text-sky-500">.</span>
+            </h1>
+            <p class="text-xl leading-relaxed text-slate-300 mb-10 border-l-4 border-sky-500 pl-8">
+                <strong class="text-white underline decoration-sky-500">Krish Sandip Shah</strong> is a Computer Engineer & Security Researcher. 
+                Focused on <span class="text-sky-400">Security Automation</span> and <span class="text-sky-400">Network Forensics</span>. 
+                Leveraging Python to build adversarial simulation and defense tools.
+            </p>
+            <div class="flex flex-wrap gap-6 text-xs mono uppercase tracking-widest text-slate-500">
+                <span class="flex items-center gap-2"><i data-lucide="check-circle" class="text-emerald-500 w-4 h-4"></i> Loyalist College (2024)</span>
+                <span class="flex items-center gap-2"><i data-lucide="circle" class="text-amber-500 w-4 h-4 animate-pulse"></i> CompTIA Security+ (In Progress)</span>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900">
-        <h2 class="mono text-sky-500 text-xs mb-12 uppercase tracking-[0.5em]">Security_Research_Tools</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="glass p-8 rounded-2xl cyber-card">
-                <h3 class="text-xl font-bold text-white mb-2">Inspection Tool</h3>
-                <p class="text-sm text-slate-400 mb-4">Python tool for URL reconnaissance: port scanning, WHOIS lookup, and subdomain discovery.</p>
-                <span class="mono text-[10px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded">Automation</span>
-            </div>
-            <div class="glass p-8 rounded-2xl cyber-card">
-                <h3 class="text-xl font-bold text-white mb-2">Packet Sniffer</h3>
-                <p class="text-sm text-slate-400 mb-4">Network analyzer with Raw, Summary, Target, and Host exploration modes built in Python.</p>
-                <span class="mono text-[10px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded">Networking</span>
-            </div>
-            <div class="glass p-8 rounded-2xl cyber-card">
-                <h3 class="text-xl font-bold text-white mb-2">Keylogger</h3>
-                <p class="text-sm text-slate-400 mb-4">Security research project exploring keystroke logging and data interception mechanisms.</p>
-                <span class="mono text-[10px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded">Malware Research</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900">
-        <div class="grid lg:grid-cols-2 gap-16">
-            
+    <section id="active-projects" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900">
+        <div class="flex justify-between items-end mb-16">
             <div>
-                <h2 class="mono text-sky-500 text-xs mb-8 uppercase tracking-[0.5em]">Technical_Competencies</h2>
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-2 text-xs mono uppercase">
-                            <span>Python (Security Scripting)</span>
-                            <span class="text-sky-400">Advanced</span>
-                        </div>
-                        <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full bg-sky-500 rounded-full" style="width: 85%"></div></div>
+                <h2 class="mono text-sky-500 text-xs mb-2 uppercase tracking-[0.4em]">Ongoing_Operations</h2>
+                <h3 class="text-4xl font-bold text-white tracking-tight">Active Research Modules</h3>
+            </div>
+            <div class="hidden md:block text-right mono text-[10px] text-slate-600">
+                SCALING_PROJECT_FEED... OK<br>
+                ENCRYPTION_LAYER... ACTIVE
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-3xl project-card flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex items-center gap-2">
+                        <span class="status-pulse bg-emerald-500"></span>
+                        <span class="text-[10px] mono text-emerald-500 uppercase">Live_Tool</span>
                     </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-xs mono uppercase">
-                            <span>Networking & Packet Analysis</span>
-                            <span class="text-sky-400">Intermediate</span>
-                        </div>
-                        <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full bg-sky-500 rounded-full" style="width: 75%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-xs mono uppercase">
-                            <span>L2/L3 Incident Resolution</span>
-                            <span class="text-sky-400">Expert</span>
-                        </div>
-                        <div class="h-1 w-full bg-slate-800 rounded-full"><div class="h-full bg-sky-500 rounded-full" style="width: 90%"></div></div>
-                    </div>
+                    <i data-lucide="binary" class="text-slate-700"></i>
                 </div>
-                <div class="mt-10 flex flex-wrap gap-3">
-                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 text-[10px] mono text-slate-400 uppercase">CRM Software</span>
-                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 text-[10px] mono text-slate-400 uppercase">MDM Management</span>
-                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 text-[10px] mono text-slate-400 uppercase">OSINT</span>
-                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 text-[10px] mono text-slate-400 uppercase">Helpdesk Ticketing</span>
+                <h4 class="text-xl font-bold text-white mb-4">Inspection Tool</h4>
+                <p class="text-sm text-slate-400 mb-8 flex-grow">
+                    Full-cycle reconnaissance tool performing automated port scanning, WHOIS lookup, and subdomain discovery to map attack surfaces.
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">OSINT</span>
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">PYTHON</span>
                 </div>
             </div>
 
-            <div class="glass p-8 rounded-3xl border-l-4 border-l-amber-500/50">
-                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    <i data-lucide="award" class="text-amber-500 w-5 h-5"></i>
-                    Certification_Roadmap
-                </h3>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="flex flex-col items-center">
-                            <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                            <div class="w-0.5 h-10 bg-slate-800"></div>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-white">Loyalist College Degree</p>
-                            <p class="text-xs text-emerald-500 mono uppercase">Status: Graduated 2024</p>
-                        </div>
+            <div class="glass p-8 rounded-3xl project-card flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex items-center gap-2">
+                        <span class="status-pulse bg-emerald-500"></span>
+                        <span class="text-[10px] mono text-emerald-500 uppercase">Live_Tool</span>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="flex flex-col items-center">
-                            <div class="w-3 h-3 bg-amber-500 rounded-full animate-pulse"></div>
-                            <div class="w-0.5 h-10 bg-slate-800"></div>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold text-white">CompTIA Security+</p>
-                            <p class="text-xs text-amber-500 mono uppercase">Status: Currently Working On</p>
-                        </div>
+                    <i data-lucide="activity" class="text-slate-700"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-4">Packet Sniffing Engine</h4>
+                <p class="text-sm text-slate-400 mb-8 flex-grow">
+                    Multi-mode network analyzer providing Raw, Summary, Target, and Host-based traffic exploration for forensic analysis.
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">NET_SEC</span>
+                    <span class="px-2 py-1 bg-sky-500/10 text-sky-400 text-[10px] mono rounded">FORENSICS</span>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl project-card flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex items-center gap-2">
+                        <span class="status-pulse bg-amber-500 animate-pulse"></span>
+                        <span class="text-[10px] mono text-amber-500 uppercase">In_Development</span>
                     </div>
-                    <div class="flex gap-4 opacity-50">
-                        <div class="flex flex-col items-center"><div class="w-3 h-3 bg-slate-700 rounded-full"></div></div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-400">Future Milestones</p>
-                            <p class="text-xs text-slate-600 mono uppercase">CEH / OSCP</p>
-                        </div>
-                    </div>
+                    <i data-lucide="lock" class="text-slate-700"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-4">Secure Keylogger</h4>
+                <p class="text-sm text-slate-400 mb-8 flex-grow">
+                    Researching data exfiltration techniques and keystroke logging mechanisms within secure Python environments.
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 bg-amber-500/10 text-amber-500 text-[10px] mono rounded">MALWARE_RES</span>
+                    <span class="px-2 py-1 bg-amber-500/10 text-amber-500 text-[10px] mono rounded">PYTHON</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900">
-        <h2 class="mono text-sky-500 text-xs mb-12 uppercase tracking-[0.5em]">Operational_History</h2>
-        <div class="space-y-16">
-            <div class="relative pl-8 border-l border-sky-900">
-                <div class="absolute -left-1.5 top-0 w-3 h-3 bg-sky-500 rounded-full"></div>
-                <div class="flex justify-between items-baseline mb-2">
-                    <h3 class="text-2xl font-bold text-white">IT Helpdesk Specialist (L2/L3)</h3>
-                    <span class="mono text-xs text-slate-500 uppercase">Apr 2022 — Apr 2023</span>
+    <section id="roadmap" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-900 bg-slate-900/10">
+        <div class="grid lg:grid-cols-2 gap-20">
+            <div>
+                <h2 class="mono text-sky-500 text-xs mb-8 uppercase tracking-[0.4em]">Skill_Optimization</h2>
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between mb-3 text-xs mono text-white">
+                            <span>Vulnerability Assessment</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="h-1 bg-slate-800 rounded-full"><div class="h-full bg-sky-500 rounded-full" style="width: 80%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-3 text-xs mono text-white">
+                            <span>Network Forensics</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="h-1 bg-slate-800 rounded-full"><div class="h-full bg-sky-500 rounded-full" style="width: 75%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-3 text-xs mono text-white">
+                            <span>Python Security Automation</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="h-1 bg-slate-800 rounded-full"><div class="h-full bg-sky-500 rounded-full" style="width: 90%"></div></div>
+                    </div>
                 </div>
-                <p class="text-sky-400 mono text-xs mb-4 uppercase">Mac Consultants | Ahmedabad</p>
-                <ul class="text-sm text-slate-400 max-w-4xl space-y-2 list-disc list-inside">
-                    <li>Managed national IT support operations, collaborating with vendors and contractors.</li>
-                    <li>Addressed and resolved complex technical issues at the second and third level of support via escalation channels.</li>
-                    <li>Directly collaborated with MDMs and outside vendors for seamless IT service delivery.</li>
-                    <li>Conducted daily environment monitoring and proactively handled production-related security incidents.</li>
-                </ul>
+            </div>
+
+            <div class="glass p-10 rounded-3xl border-l-4 border-amber-500">
+                <h3 class="text-2xl font-bold text-white mb-6">Certification Roadmap</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center"><div class="w-2 h-2 bg-emerald-500 rounded-full"></div><div class="w-px h-10 bg-slate-800"></div></div>
+                        <div><p class="text-white font-bold">Loyalist College Certification</p><p class="text-[10px] mono text-emerald-500 uppercase">Graduated 2024</p></div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center"><div class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div><div class="w-px h-10 bg-slate-800"></div></div>
+                        <div><p class="text-white font-bold">CompTIA Security+</p><p class="text-[10px] mono text-amber-500 uppercase">Examination Phase</p></div>
+                    </div>
+                    <div class="flex gap-6 opacity-40">
+                        <div class="flex flex-col items-center"><div class="w-2 h-2 bg-slate-700 rounded-full"></div></div>
+                        <div><p class="text-white font-bold">OSCP / CEH</p><p class="text-[10px] mono text-slate-500 uppercase">Future Milestone</p></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-24">
-        <div class="glass rounded-xl overflow-hidden shadow-2xl">
-            <div class="bg-slate-900/50 px-4 py-2 flex items-center gap-2 border-b border-sky-900/20">
-                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 bg-red-500/50 rounded-full"></div><div class="w-2.5 h-2.5 bg-amber-500/50 rounded-full"></div><div class="w-2.5 h-2.5 bg-emerald-500/50 rounded-full"></div></div>
-                <span class="mono text-[9px] text-slate-500 uppercase">Terminal_v1.0.4 // root@krishshah</span>
+        <div class="glass rounded-2xl overflow-hidden shadow-2xl">
+            <div class="bg-slate-900/50 px-6 py-3 border-b border-sky-900/20 flex justify-between">
+                <span class="mono text-[10px] text-slate-500">SEC_SHELL // root@krish_labs</span>
+                <span class="mono text-[10px] text-sky-500">ENCRYPTION: AES_256</span>
             </div>
             <div id="output" class="p-8 h-64 overflow-y-auto mono text-sm text-sky-400 space-y-2">
-                <div class="text-slate-500">System Ready. Type 'roadmap' to check certification status.</div>
+                <div class="text-slate-600">Initializing Lab Environment... Connection Secured.</div>
+                <div>Type 'roadmap' or 'projects' to interact.</div>
             </div>
-            <div class="p-4 bg-black/40 flex gap-3 items-center border-t border-sky-900/20">
+            <div class="p-6 bg-black/40 flex gap-4 items-center border-t border-sky-900/20">
                 <span class="mono text-sky-500 font-bold">$</span>
                 <input type="text" id="termInput" class="bg-transparent border-none outline-none text-white mono w-full" autofocus autocomplete="off">
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-slate-900 mono text-[9px] text-slate-700 uppercase tracking-[0.5em]">
-        &copy; 2026 Krish Sandip Shah // Clearance_Level: Alpha // Secure_Environment
+    <footer class="py-12 text-center border-t border-slate-900 mono text-[10px] text-slate-700 uppercase tracking-[0.5em]">
+        &copy; 2026 Krish Sandip Shah // Secure_Environment // No Logs Kept
     </footer>
 
     <script>
@@ -213,11 +196,11 @@
         const input = document.getElementById('termInput');
         const output = document.getElementById('output');
         const db = {
-            'roadmap': 'STATUS: Loyalist College (COMPLETED 2024) | CompTIA Security+ (IN PROGRESS) | CEH (QUEUED)',
-            'skills': 'Python, Networking, L2/L3 Resolution, CRM, MDM, OSINT, Helpdesk Systems.',
-            'whoami': 'Krish Sandip Shah: Cyber Security Researcher & B.E. Computer Engineer.',
-            'contact': 'EMAIL: Krishshah13579@gmail.com | PHONE: 8128756632',
-            'help': 'Commands: roadmap, skills, whoami, contact, clear'
+            'roadmap': 'STATUS: Loyalist College (2024 COMPLETE) | CompTIA Security+ (WORKING ON) | OSCP (PLANNED)',
+            'projects': 'MODS: Inspection_Tool, Packet_Sniffer, Python_Keylogger. Source code available on GitHub.',
+            'contact': 'EMAIL: Krishshah13579@gmail.com | Github: SHAHKRISHS',
+            'whoami': 'Krish Sandip Shah: Computer Engineer & Cyber Security Researcher.',
+            'clear': 'CLEAR'
         };
 
         input.addEventListener('keydown', (e) => {
@@ -225,7 +208,7 @@
                 const cmd = input.value.toLowerCase().trim();
                 if (cmd === 'clear') { output.innerHTML = ''; }
                 else if (db[cmd]) { output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>${db[cmd]}</div>`; }
-                else { output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>Command not found.</div>`; }
+                else { output.innerHTML += `<div><span class="text-white">$ ${cmd}</span><br>Command not recognized. Try 'help'.</div>`; }
                 input.value = ''; output.scrollTop = output.scrollHeight;
             }
         });
